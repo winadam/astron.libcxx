@@ -84,7 +84,7 @@ bool Connection::connect(std::string host)
 	if(err)
 	{
 		// TODO: Maybe a log message or return a more descriptive error?
-		std::cout << "Connection.cpp:79 error" << std::endl;
+		std::cout << "Connection.cpp:" << __LINE__ << " error" << std::endl;
 		return false;
 	}
 
@@ -92,7 +92,7 @@ bool Connection::connect(std::string host)
 	if(addr_it == tcp::resolver::iterator())
 	{
 		// TODO: Maybe a log message or return a more descriptive error?
-		std::cout << "Connection.cpp:90 error" << std::endl;
+		std::cout << "Connection.cpp:" << __LINE__ <<  "error" << std::endl;
 		return false;
 	}
 
