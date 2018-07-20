@@ -1,4 +1,8 @@
+
 #pragma once
+
+#include "InternalRepository.h"
+
 namespace astron   // open namespace
 {
 

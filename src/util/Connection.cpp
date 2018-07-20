@@ -2,6 +2,7 @@
 #include <list>
 #include <string>
 #include <boost/bind.hpp>
+#include <iostream>
 
 namespace astron
 {
@@ -11,10 +12,12 @@ using namespace boost::system;
 using boost::asio::ip::tcp;
 
 
+
 // Creates an empty connection, ready for use
 Connection::Connection() : m_async_buf(NULL), m_async_size(0), m_expecting_data(false),
 	m_is_async(false), m_is_forever(false)
 {
+    m_socket = nullptr;
 }
 
 // Create a Connection from an already opened socket.
@@ -81,6 +84,7 @@ bool Connection::connect(std::string host)
 	if(err)
 	{
 		// TODO: Maybe a log message or return a more descriptive error?
+		std::cout << "Connection.cpp:79 error" << std::endl;
 		return false;
 	}
 
@@ -88,6 +92,7 @@ bool Connection::connect(std::string host)
 	if(addr_it == tcp::resolver::iterator())
 	{
 		// TODO: Maybe a log message or return a more descriptive error?
+		std::cout << "Connection.cpp:90 error" << std::endl;
 		return false;
 	}
 

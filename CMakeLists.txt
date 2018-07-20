@@ -173,9 +173,12 @@ if(BUILD_TESTS)
   target_link_libraries(unittest-core astron-cxx)
 
   if(BUILD_CLIENT)
-    add_executable(unittest-client src/unittest/main-internal.cpp)
+    add_executable(unittest-client src/unittest/main-client.cpp)
     add_dependencies(unittest-client astron-cxx-internal)
+    add_dependencies(unittest-client astron-cxx-client)
+    include_directories(src)
     target_link_libraries(unittest-client astron-cxx-internal)
+    target_link_libraries(unittest-client astron-cxx-client)
   endif()
 
   if(BUILD_INTERNAL)
