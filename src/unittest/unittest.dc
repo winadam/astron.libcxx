@@ -1,0 +1,6 @@
+dclass TestClass1 {
+    setTest(uint32 testNumber);
+}
+dclass TestClass2 {
+    setTest2(uint32 testNumber);
+}

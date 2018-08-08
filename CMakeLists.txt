@@ -141,7 +141,7 @@ add_library(astron-cxx
   src/objects/ObjectFactory.h
   src/objects/ObjectFactory.cpp
   src/objects/ObjectRepository.h
-  src/objects/ObjectRepository.cpp)
+  src/objects/ObjectRepository.cpp src/objects/DistributedField.cpp src/objects/DistributedField.h)
 add_dependencies(astron-cxx dcparser)
 target_link_libraries(astron-cxx dcparser ${Boost_LIBRARIES})
 

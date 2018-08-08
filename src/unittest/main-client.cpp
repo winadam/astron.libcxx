@@ -5,6 +5,9 @@
 #include <util/DatagramIterator.h>
 #include <string>
 #include <thread>
+#include <objects/ObjectRepository.h>
+
+std::vector<std::string> dcFiles = { "unittest.dc" };
 
 class CustomClient : public astron::ClientConnection {
 public:
@@ -59,7 +62,8 @@ public:
         }
     }
      void run(){
-        login("localhost:7199",0x11c1,"Unittest");
+        astron::ObjectRepository objectRepository(dcFiles);
+        login("localhost:7199",objectRepository.getDcHash(),"Unittest");
         mThread = std::thread(&CustomClient::poll,this);
         //mThread.detach();
 
@@ -76,6 +80,7 @@ std::thread DatagramReciever;
 int main(int argc, char **argv){
     CustomClient cg;
     cg.run();
+
     std::this_thread::sleep_for(std::chrono::seconds(15));
     cg.stop();
 }
